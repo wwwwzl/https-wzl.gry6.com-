@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F08%2F21%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[notification]]></title>
     <url>%2F2019%2F08%2F21%2FNotification%2F</url>
     <content type="text"><![CDATA[注意必须是HTTPS 才能开启通知 123456789101112131415161718192021222324252627282930313233343536373839404142434445&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt; &lt;title&gt;Notification&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;script type="text/javascript"&gt; Notification.requestPermission().then(function(result) &#123; if (result === 'denied') &#123; console.log('被拒绝'); return; &#125; if (result === 'default') &#123; console.log('The permission request was dismissed.'); return; &#125; // Do something with the granted permission. function notice() &#123; var notification = new Notification("你好，JavaScript",&#123; body:'微信订阅号', &#125;); notification.onclick = function()&#123; notification.close() &#125; &#125; &#125;); &lt;/script&gt; &lt;/body&gt; &lt;/html&gt; 手册地址 https://developer.mozilla.org/zh-CN/docs/Web/API/notification/Notification]]></content>
