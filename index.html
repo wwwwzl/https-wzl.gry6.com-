@@ -373,94 +373,14 @@
 
       
         
-          
-            <h2 id="下载nodejs"><a href="#下载nodejs" class="headerlink" title="下载nodejs"></a>下载nodejs</h2><p>这个是必须的，因为hexo就是基于nodejs的，从<a href="https://link.jianshu.com?t=http%3A%2F%2Fnodejs.cn%2F" target="_blank" rel="noopener">官网</a>下载压缩包，解压即可</p>
-<p>不过这里的命令不是全局的，所以需要把node和npm设置成全局</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s /home/<span class="keyword">node</span><span class="title">-v4</span>.<span class="number">4.4</span>-linux-x64/bin/<span class="keyword">node</span> <span class="title">/usr</span>/local/bin/<span class="keyword">node</span>  <span class="title"></span></span><br><span class="line"><span class="title">ln</span> -s /home/<span class="keyword">node</span><span class="title">-v4</span>.<span class="number">4.4</span>-linux-x64/bin/npm /usr/local/bin/npm</span><br></pre></td></tr></table></figure>
-
-<p>前边的<strong>/home/node-v4.4.4-linux-x64/bin/npm</strong> 是自己的node所在的路径，这个记得改成自己的</p>
-<h2 id="下载hexo"><a href="#下载hexo" class="headerlink" title="下载hexo"></a>下载hexo</h2><ul>
-<li>先创建一个文件夹（用来存放所有blog的东西），然后cd到该文件夹下。</li>
-<li>安装hexo命令：npm i -g hexo</li>
-<li>然后初始化<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init <span class="built_in">name</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="然后cd你的项目进去-各种配置"><a href="#然后cd你的项目进去-各种配置" class="headerlink" title="然后cd你的项目进去 各种配置"></a>然后cd你的项目进去 各种配置</h3><ul>
-<li><p>先下载NEXT主题包(下什么主题包根据个人爱好)</p>
-</li>
-<li><p>在你的项目里</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/iissnan/hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后修改配置</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">title</span>: 的博客 <span class="comment">//不解释</span></span><br><span class="line"><span class="attribute">author</span>:  <span class="comment">//作者</span></span><br><span class="line"><span class="attribute">language</span>: zh-Hans <span class="comment">//语言</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">url</span>: <span class="attribute">https</span>:<span class="comment">//gry.github.io/</span></span><br><span class="line"><span class="attribute">root</span>: /</span><br><span class="line"><span class="attribute">permalink</span>: :year/:month/:day/:title/</span><br><span class="line"><span class="attribute">permalink_defaults</span>:</span><br><span class="line"></span><br><span class="line"><span class="comment">// 要添加搜索记得 npm install hexo-generator-searchdb --save</span></span><br><span class="line"><span class="attribute">search</span>:</span><br><span class="line">    <span class="attribute">path</span>: search.xml</span><br><span class="line">    <span class="attribute">field</span>: post</span><br><span class="line">    <span class="attribute">format</span>: html</span><br><span class="line">    <span class="attribute">limit</span>: <span class="number">10000</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">theme</span>: next</span><br><span class="line"></span><br><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">    <span class="attribute">type</span>: git</span><br><span class="line">    <span class="attribute">repository</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:gedage/gry.github.io.git</span><br><span class="line">    <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="接下来配置-next-主题的配置"><a href="#接下来配置-next-主题的配置" class="headerlink" title="接下来配置 next 主题的配置"></a>接下来配置 next 主题的配置</h3><ul>
-<li>进入themes/next<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$ vim _config.yml</span><br><span class="line"><span class="symbol"> menu:</span>  <span class="comment">// 功能栏</span></span><br><span class="line"><span class="symbol">    home:</span> / || home</span><br><span class="line">    <span class="meta">#about: /about/ || user</span></span><br><span class="line"><span class="symbol">    tags:</span> <span class="meta-keyword">/tags/</span> || tags</span><br><span class="line"><span class="symbol">    categories:</span> <span class="meta-keyword">/categories/</span> || th</span><br><span class="line"><span class="symbol">    archives:</span> <span class="meta-keyword">/archives/</span> || archive</span><br><span class="line">   <span class="meta">#schedule: /schedule/ || calendar</span></span><br><span class="line">   <span class="meta">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line">  <span class="meta">#commonweal: /404/ || heartbeat</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># Schemes   <span class="comment">//风格</span></span></span><br><span class="line"> <span class="meta">#scheme: Muse</span></span><br><span class="line"> <span class="meta">#scheme: Mist</span></span><br><span class="line"> <span class="meta">#scheme: Pisces</span></span><br><span class="line"><span class="symbol"> scheme:</span> Gemini</span><br><span class="line"></span><br><span class="line"> <span class="meta"># Sidebar Avatar</span></span><br><span class="line"> <span class="meta"># in theme directory(source/images): /images/avatar.gi    f in site  directory(source/uploads): /uploads/avatar.    gif</span></span><br><span class="line"><span class="symbol">  avatar:</span> <span class="meta-keyword">/images/</span>head.jpg   <span class="comment">// 作者头像图片</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="meta"># Code Highlight theme </span></span><br><span class="line"><span class="symbol">highlight_theme:</span> night <span class="comment">//高亮显示</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="配置好了-之后的操作"><a href="#配置好了-之后的操作" class="headerlink" title="配置好了 之后的操作"></a>配置好了 之后的操作</h3><ul>
-<li>hexo 常用 操作<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean  <span class="comment">//清除页面</span></span><br><span class="line">hexo <span class="keyword">g</span> <span class="comment">// 生成页面</span></span><br><span class="line">hexo <span class="keyword">d</span> <span class="comment">//git</span></span><br><span class="line"><span class="comment">//如果是本地环境</span></span><br><span class="line">hexo <span class="built_in">s</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="设置背景图片"><a href="#设置背景图片" class="headerlink" title="设置背景图片"></a>设置背景图片</h3><ul>
-<li>我们直接在 NEXT 预留的自定义样式文件 “themes/next/source/css/_custom/custom.styl” 中添加自己的样式即可, 在自定义样式文件中写入以下代码:<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加背景图片</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: url(https://source.unsplash.com/random/<span class="number">1600</span>x900?wallpapers);</span><br><span class="line">  <span class="attribute">background-size</span>: cover;</span><br><span class="line">  <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">  <span class="attribute">background-attachment</span>: fixed;</span><br><span class="line">  <span class="attribute">background-position</span>: <span class="number">50%</span> <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改主体透明度</span></span><br><span class="line"><span class="selector-class">.main-inner</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改菜单栏透明度</span></span><br><span class="line"><span class="selector-class">.header-inner</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="创建标签和分类"><a href="#创建标签和分类" class="headerlink" title="创建标签和分类"></a>创建标签和分类</h3><ul>
-<li><p>打开命令行，进入博客所在文件夹。执行命令</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">new</span> <span class="type">page</span> categories <span class="comment">// tags 同样</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>成功后会提示：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  <span class="string">Created:</span> <span class="regexp">~/Documents/</span>blog<span class="regexp">/source/</span>categories/index.md</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>根据上面的路径，找到index.md这个文件，打开后默认内容是这样的：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章分类</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2017</span><span class="bullet">-05</span><span class="bullet">-27</span> <span class="number">13</span><span class="string">:47:40</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加type: “categories”到内容中，添加后是这样的：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章分类</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2017</span><span class="bullet">-05</span><span class="bullet">-27</span> <span class="number">13</span><span class="string">:47:40</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">"categories"</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="string">保存并关闭文件。</span></span><br><span class="line"><span class="string">标签页同上</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="创建一个新文章"><a href="#创建一个新文章" class="headerlink" title="创建一个新文章"></a>创建一个新文章</h3><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">new</span> <span class="built_in">title</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>生产后会提示你文件路径，一般在hexo/source/_posts下</li>
-<li>文章基本设置<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">CentOS7下Tomcat启动慢的原因及解决方案</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2017</span><span class="bullet">-12</span><span class="bullet">-02</span> <span class="number">21</span><span class="string">:01:24</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">true</span> <span class="comment">#是否可评论</span></span><br><span class="line"><span class="attr">toc:</span> <span class="literal">true</span> <span class="comment">#是否显示文章目录</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">"云服务器"</span> <span class="comment">#分类</span></span><br><span class="line"><span class="attr">tags:</span>   <span class="comment">#标签</span></span><br><span class="line">	<span class="bullet">-</span> <span class="string">centOS</span></span><br><span class="line">	<span class="bullet">-</span> <span class="string">tomcat</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="下载git"><a href="#下载git" class="headerlink" title="下载git"></a>下载git</h2><ul>
-<li>直接百度</li>
-<li>创建github账号</li>
-<li>新建一个名为你的用户名.github.io的仓库，比如说，如果你的github用户名是test，那么你就新建test.github.io的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是 <a href="http://test.github.io" target="_blank" rel="noopener">http://test.github.io</a> 了，是不是很方便？</li>
-</ul>
-<p>由此可见，每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库。</p>
-<p>几个注意的地方：</p>
-<p>注册的邮箱一定要验证，否则不会成功；<br>仓库名字必须是：username.github.io，其中username是你的用户名；<br>仓库创建成功不会立即生效，需要过一段时间，大概10-30分钟，或者更久，我的等了半个小时才生效；</p>
-<h3 id="配置SSH秘钥"><a href="#配置SSH秘钥" class="headerlink" title="配置SSH秘钥"></a>配置SSH秘钥</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ~/. ssh <span class="comment">#检查本机已存在的ssh密钥</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh-keygen -t rsa -C <span class="string">"邮件地址"</span></span></span><br></pre></td></tr></table></figure>
-
-<p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：</p>
-<h3 id="测试是否成功"><a href="#测试是否成功" class="headerlink" title="测试是否成功"></a>测试是否成功</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>此时你还需要配置：<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="selector-class">.name</span> <span class="string">"liuxianan"</span><span class="comment">// 你的github用户名，非昵称</span></span><br><span class="line">$ git config --global user<span class="selector-class">.email</span>  <span class="string">"xxx@qq.com"</span><span class="comment">// 填写你的github注册邮箱</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><ul>
-<li>在 hexo 项目下，source 文件夹下面创建 CNAME 文件（没有后缀名的），在里面写上购买的域名</li>
-<li>github 设置项目的 setting下面的 GitHub Pages的 Custom domain设置里填上购买的域名</li>
-</ul>
-<h2 id="hexo-next-具体的主题配置请参考官方手册"><a href="#hexo-next-具体的主题配置请参考官方手册" class="headerlink" title="hexo next 具体的主题配置请参考官方手册"></a>hexo next 具体的主题配置请参考官方手册</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="regexp">//</span>theme-<span class="keyword">next</span>.iissnan.com<span class="regexp">/getting-started.html</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="谢谢观看"><a href="#谢谢观看" class="headerlink" title="谢谢观看~"></a>谢谢观看<del>~</del></h2>
-          
+          <h2 id="下载nodejs"><a href="#下载nodejs" class="headerlink" title="下载nodejs"></a>下载nodejs</h2><p>这个是必须的，因为hexo就是基于nodejs的，从<a href="https://link.jianshu.com?t=http%3A%2F%2Fnodejs.cn%2F" target="_blank" rel="noopener">官网</a>下载压缩包，解压即可</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/23/hexo排坑/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
