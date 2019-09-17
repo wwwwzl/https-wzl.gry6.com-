@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="王子龙的个人博客">
-<meta property="og:url" content="https://wzl.gry6.com/tags/HTML/index.html">
+<meta name="description" content="注意必须是HTTPS 才能开启通知 有时我们需要在现有的web服务器上增加新的模块实现更为丰富的功能，Nginx算是比较常用的web服务器，但是nginx也不仅仅只可以做web服务器，只要有对应的插件还可用作反向代理、即时通讯、文件下载、流媒体服务等功能，如果已经安装好了Nginx有不想重新安装覆盖的前提下如何新增模块呢?下面通过安装nginx-rtmp-module作为示例进行说明，安装其他模块">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx增加rtmp协议">
+<meta property="og:url" content="https://wzl.gry6.com/2019/09/17/nginx_增加rtmp协议/index.html">
 <meta property="og:site_name" content="王子龙的个人博客">
+<meta property="og:description" content="注意必须是HTTPS 才能开启通知 有时我们需要在现有的web服务器上增加新的模块实现更为丰富的功能，Nginx算是比较常用的web服务器，但是nginx也不仅仅只可以做web服务器，只要有对应的插件还可用作反向代理、即时通讯、文件下载、流媒体服务等功能，如果已经安装好了Nginx有不想重新安装覆盖的前提下如何新增模块呢?下面通过安装nginx-rtmp-module作为示例进行说明，安装其他模块">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-17T15:01:27.022Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="王子龙的个人博客">
+<meta name="twitter:title" content="Nginx增加rtmp协议">
+<meta name="twitter:description" content="注意必须是HTTPS 才能开启通知 有时我们需要在现有的web服务器上增加新的模块实现更为丰富的功能，Nginx算是比较常用的web服务器，但是nginx也不仅仅只可以做web服务器，只要有对应的插件还可用作反向代理、即时通讯、文件下载、流媒体服务等功能，如果已经安装好了Nginx有不想重新安装覆盖的前提下如何新增模块呢?下面通过安装nginx-rtmp-module作为示例进行说明，安装其他模块">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://wzl.gry6.com/tags/HTML/">
+  <link rel="canonical" href="https://wzl.gry6.com/2019/09/17/nginx_增加rtmp协议/">
 
 
 
 
 
-  <title>标签: HTML | 王子龙的个人博客</title>
+  <title>Nginx增加rtmp协议 | 王子龙的个人博客</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -266,78 +271,211 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>HTML<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wzl.gry6.com/2019/09/17/nginx_增加rtmp协议/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王子龙">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王子龙的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/08/24/editormd编辑器使用/" itemprop="url">
-              
-                <span itemprop="name">editormd_编辑器使用</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Nginx增加rtmp协议</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-24T22:37:08+08:00" content="2019-08-24">
-          08-24
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-17T15:37:08+08:00">
+                2019-09-17
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="注意必须是HTTPS-才能开启通知"><a href="#注意必须是HTTPS-才能开启通知" class="headerlink" title="注意必须是HTTPS 才能开启通知"></a>注意必须是HTTPS 才能开启通知</h2><blockquote>
+<p>有时我们需要在现有的web服务器上增加新的模块实现更为丰富的功能，Nginx算是比较常用的web服务器，但是nginx也不仅仅只可以做web服务器，只要有对应的插件还可用作反向代理、即时通讯、文件下载、流媒体服务等功能，如果已经安装好了Nginx有不想重新安装覆盖的前提下如何新增模块呢?下面通过安装nginx-rtmp-module作为示例进行说明，安装其他模块也是同样的道理。</p>
+<ul>
+<li><strong>首先就是先下载nginx-rtmp-module</strong><br>  官方github地址：<a href="https://github.com/arut/nginx-rtmp-module" target="_blank" rel="noopener">https://github.com/arut/nginx-rtmp-module</a></li>
+<li><strong>安装：nginx</strong><br>   nginx的官方网站为：<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a><a id="more"></a>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="symbol">http:</span>/<span class="regexp">/nginx.org/download</span><span class="regexp">/nginx-1.12.1.tar.gz  </span></span><br><span class="line"><span class="regexp">    tar -zxvf nginx-1.12.1.tar.gz  </span></span><br><span class="line"><span class="regexp">    cd nginx-1.12.1  </span></span><br><span class="line"><span class="regexp">    ./configure</span> --prefix=<span class="regexp">/usr/local</span><span class="regexp">/nginx  --add-module=/nginx</span>-rtmp-<span class="class"><span class="keyword">module</span>    --<span class="title">with</span>-<span class="title">http_ssl_module</span>    </span></span><br><span class="line">    make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/21/Notification/" itemprop="url">
-              
-                <span itemprop="name">notification</span>
-              
-            </a>
-        
-      </h2>
+<p>如果你已经安装好nginx，那么需要单独安装第三方模块，不能重新安装</p>
+<ul>
+<li><p>nginx第三方模块安装方法：</p>
+<blockquote>
+<p>./configure –prefix=/你的安装目录  –add-module=/第三方模块目录<br>以安装nginx-rtmp-module模块为例，在已安装nginx情况下安装nginx-rtmp-module模块<br>因为以前nginx安装在/usr/local/nginx目录下，所以下面的操作都是以此目录为路径进行操作，如果安装到其他目录有些命令需要做对应的更改。<br>先查看原有nginx的配置参数并拷贝出来（重要）注意V 是大写的</p>
+</blockquote>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta-keyword">/usr/</span>local<span class="meta-keyword">/nginx/</span>sbin/nginx -V</span><br><span class="line">把结果复制出来</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>上面显示我们之前安装的nginx 版本是 1.12.1   我们要使用对应版本的  nginx 的安装包</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http:<span class="comment">//nginx.org/download/nginx-1.12.1.tar.gz  //版本根据自己的-V更换</span></span><br><span class="line">tar -zxvf nginx-<span class="number">1.12</span>.<span class="number">1</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span> </span><br><span class="line">cd nginx-<span class="number">1.12</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>下载完成，并解压后  进入到  nginx-1.12.1 目录</strong></p>
+</li>
+</ul>
+<p><strong>接下来是重要的一步,将我们上面 原先安装的nginx配置参数 上，添加新的模块(根据自己实际情况)</strong></p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure arguments: --user=www --<span class="keyword">group</span>=www --prefix=/usr/local/nginx --<span class="keyword">with</span>-openssl=/usr/local/nginx/src/openssl --<span class="keyword">add</span>-<span class="keyword">module</span>=/usr/local/nginx/src/ngx_devel_kit --<span class="keyword">add</span>-<span class="keyword">module</span>=/usr/local/nginx/src/lua_nginx_module --<span class="keyword">add</span>-<span class="keyword">module</span>=/nginx-rtmp-<span class="keyword">module</span> --<span class="keyword">add</span>-<span class="keyword">module</span>=/usr/local/nginx/src/ngx_cache_purge --<span class="keyword">add</span>-<span class="keyword">module</span>=/usr/local/nginx/src/nginx-sticky-<span class="keyword">module</span> --<span class="keyword">add</span>-<span class="keyword">module</span>=/usr/local/nginx/src/nginx-http-<span class="keyword">concat</span> --<span class="keyword">with</span>-http_stub_status_module --<span class="keyword">with</span>-http_ssl_module --<span class="keyword">with</span>-http_v2_module --<span class="keyword">with</span>-http_gzip_static_module --<span class="keyword">with</span>-http_gunzip_module --<span class="keyword">with</span>-stream --<span class="keyword">with</span>-stream_ssl_module --<span class="keyword">with</span>-ipv6 --<span class="keyword">with</span>-http_sub_module --<span class="keyword">with</span>-http_flv_module --<span class="keyword">with</span>-http_addition_module --<span class="keyword">with</span>-http_realip_module --<span class="keyword">with</span>-http_mp4_module --<span class="keyword">with</span>-ld-opt=-Wl,-E --<span class="keyword">with</span>-cc-opt=-Wno-error --<span class="keyword">with</span>-ld-opt=-ljemalloc</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-21T15:37:08+08:00" content="2019-08-21">
-          08-21
-        </time>
-      </div>
+<p><strong>注意，里面我 加了一个参数   –add-module=/nginx-rtmp-module   如果你有其他模块要一起安装，方法是一样的。</strong></p>
+<p><strong>等待配置跑完。然后输入 MAKE</strong></p>
+<ul>
+<li><p><strong>进行编译。编译完成后，我们需要在根目录下我们刚下载的 /nginx-1.12.1/objs/ 目录下。找到刚刚编译好的 nginx 文件（ 没有扩展名）<br>将 nginx 文件复制到 我们之前安装的 /usr/local/nginx/sbin/ 目录，替换旧的 nginx 文件。建议备份一下旧的 nginx 文件。</strong></p>
+</li>
+<li><p><strong>然后重启下nginx 就好了。</strong></p>
+</li>
+<li><p><strong>这个时候我们在查看下nginx 配置。</strong></p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -V <span class="comment">//我们看到 nginx-rtmp-module 模块已经有了。</span></span><br></pre></td></tr></table></figure>
 
-    </header>
-  </article>
-
+</li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/24/Hexo文章加密 /" rel="next" title="Hexo文章加密">
+                <i class="fa fa-chevron-left"></i> Hexo文章加密
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/17/OBS推流_客户端拉流/" rel="prev" title="OBS推流_客户端拉流">
+                OBS推流_客户端拉流 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -345,6 +483,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -365,8 +507,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -428,6 +579,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#注意必须是HTTPS-才能开启通知"><span class="nav-number">1.</span> <span class="nav-text">注意必须是HTTPS 才能开启通知</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -558,6 +725,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
