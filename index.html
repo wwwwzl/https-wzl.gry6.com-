@@ -373,45 +373,18 @@
 
       
         
-          
-            <a id="more"></a>
-<h2 id="1-修改nginx配置-nginx-conf-使之支持rtmp和hls"><a href="#1-修改nginx配置-nginx-conf-使之支持rtmp和hls" class="headerlink" title="1 修改nginx配置(nginx.conf)使之支持rtmp和hls;"></a>1 修改nginx配置(nginx.conf)使之支持rtmp和hls;</h2><ul>
+          <h2 id="1-修改nginx配置-nginx-conf-使之支持rtmp和hls"><a href="#1-修改nginx配置-nginx-conf-使之支持rtmp和hls" class="headerlink" title="1 修改nginx配置(nginx.conf)使之支持rtmp和hls;"></a>1 修改nginx配置(nginx.conf)使之支持rtmp和hls;</h2><ul>
 <li>在server模块中增加：<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">location /<span class="class">hls </span>&#123;</span><br><span class="line"></span><br><span class="line">       <span class="class">types </span>&#123;</span><br><span class="line"></span><br><span class="line">           application/vnd.apple.mpegurl m3u8; </span><br><span class="line"></span><br><span class="line">           video/mp2t ts;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       alias <span class="meta-keyword">/home/</span>wwwroot<span class="meta-keyword">/default/</span>hls<span class="meta-keyword">/live01/</span>;  <span class="meta">#视频流文件目录(自己创建)</span></span><br><span class="line"></span><br><span class="line">       expires <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">       add_header Cache-Control no-cache;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<!--more-->
-<ul>
-<li>在末尾增加模块：<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">rtmp</span> &#123;</span><br><span class="line"></span><br><span class="line">     <span class="section">server</span> &#123;        </span><br><span class="line">        <span class="attribute">listen</span> <span class="number">1935</span>;  <span class="comment">#监听的端口</span></span><br><span class="line"></span><br><span class="line">         <span class="attribute">chunk_size</span> <span class="number">4000</span>; </span><br><span class="line"></span><br><span class="line">         <span class="attribute">application</span> hls &#123;<span class="comment">#rtmp推流请求路径</span></span><br><span class="line"></span><br><span class="line">                 <span class="attribute">live</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">                 <span class="attribute">hls</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">                 <span class="attribute">hls_path</span> /home/wwwroot/default/hls/live01; <span class="comment">#视频流文件目录(自己创建)</span></span><br><span class="line"></span><br><span class="line">                 <span class="attribute">hls_fragment</span> <span class="number">3s</span>; </span><br><span class="line"></span><br><span class="line">        &#125; </span><br><span class="line"></span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="2-在其它电脑安装obs"><a href="#2-在其它电脑安装obs" class="headerlink" title="2 在其它电脑安装obs"></a>2 在其它电脑安装obs</h2><ul>
-<li>使用obs推到 rtmp://服务器地址:1935/hls/    流秘钥 live01</li>
-</ul>
-<h2 id="3-可以使用vlc播放或在网页中播放。"><a href="#3-可以使用vlc播放或在网页中播放。" class="headerlink" title="3  可以使用vlc播放或在网页中播放。"></a>3  可以使用vlc播放或在网页中播放。</h2><ul>
-<li><p>媒体流播放地址为http://服务器地址/hls/live01.m3u8</p>
-<ul>
-<li><p>网页中视频地址为http://服务器地址/hls/live01.m3u8</p>
-</li>
-<li><p>网页中播放需要使用插件，ckplayer等</p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="首先说下HLS协议："><a href="#首先说下HLS协议：" class="headerlink" title="首先说下HLS协议："></a>首先说下HLS协议：</h2><ul>
-<li>简单讲就是把整个流分成一个个小的，基于 HTTP 的文件来下载，每次只下载一些，前面提到了用于 H5 播放直播视频时引入的一个 .m3u8 的文件，这个文件就是基于 HLS 协议，存放视频流元数据的文件。<ul>
-<li>每一个 .m3u8 文件，分别对应若干个 ts 文件，这些 ts 文件才是真正存放视频的数据，m3u8 文件只是存放了一些 ts 文件的配置信息和相关路径，当视频播放时，.m3u8 是动态改变的，video 标签会解析这个文件，并找到对应的 ts 文件来播放，所以一般为了加快速度，.m3u8 放在 web 服务器上，ts 文件放在 cdn 上。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>.m3u8 文件，其实就是以 UTF-8 编码的 m3u 文件，这个文件本身不能播放，只是存放了播放信息的文本文件：<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="selector-id">#EXTM3U</span>                 m3u文件头</span><br><span class="line"><span class="selector-id">#EXT-X-MEDIA-SEQUENCE</span>   第一个TS分片的序列号</span><br><span class="line"><span class="selector-id">#EXT-X-TARGETDURATION</span>   每个分片TS的最大的时长</span><br><span class="line"><span class="selector-id">#EXT-X-ALLOW-CACHE</span>      是否允许cache</span><br><span class="line"><span class="selector-id">#EXT-X-ENDLIST</span>          m3u8文件结束符</span><br><span class="line"><span class="selector-id">#EXTINF</span>                 指定每个媒体段(ts)的持续时间（秒），仅对其后面的URI有效mystream-<span class="number">12</span>.ts</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/09/17/OBS推流_客户端拉流/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
