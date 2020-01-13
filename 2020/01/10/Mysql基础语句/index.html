@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="mysql 基本操作修改密码在忘记本身密码的情况下 关闭数据库 1systemctl stop mysqld  启动数据库到维护模式 12&amp;gt; mysqld_safe --skip-grant-tables --skip-networking &amp;amp;&amp;gt; mysql  登录并修改密码 12&amp;gt; USE mysql;&amp;gt; update user set authenticatio">
+<meta name="description" content="mysql 基本操作修改密码在忘记本身密码的情况下">
 <meta name="keywords" content="Linux,Mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql 基本操作">
 <meta property="og:url" content="https://wzl.gry6.com/2020/01/10/Mysql基础语句/index.html">
 <meta property="og:site_name" content="王子龙的个人博客">
-<meta property="og:description" content="mysql 基本操作修改密码在忘记本身密码的情况下 关闭数据库 1systemctl stop mysqld  启动数据库到维护模式 12&amp;gt; mysqld_safe --skip-grant-tables --skip-networking &amp;amp;&amp;gt; mysql  登录并修改密码 12&amp;gt; USE mysql;&amp;gt; update user set authenticatio">
+<meta property="og:description" content="mysql 基本操作修改密码在忘记本身密码的情况下">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="d:%5C%E9%B8%BF%E7%A6%8F%5Clinux%E6%95%99%E6%A1%88%5CMysql%5C%E5%BA%93%E5%B1%9E%E6%80%A7.png">
 <meta property="og:image" content="d:%5C%E9%B8%BF%E7%A6%8F%5Clinux%E6%95%99%E6%A1%88%5CMysql%5C%E8%A1%A8%E5%B1%9E%E6%80%A7.png">
 <meta property="og:image" content="d:%5C%E9%B8%BF%E7%A6%8F%5Clinux%E6%95%99%E6%A1%88%5CMysql%5C%E8%A1%A8%E7%9A%84%E5%AD%97%E6%AE%B5%E5%B1%9E%E6%80%A7.png">
-<meta property="og:updated_time" content="2020-01-13T11:44:24.651Z">
+<meta property="og:updated_time" content="2020-01-13T11:48:34.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql 基本操作">
-<meta name="twitter:description" content="mysql 基本操作修改密码在忘记本身密码的情况下 关闭数据库 1systemctl stop mysqld  启动数据库到维护模式 12&amp;gt; mysqld_safe --skip-grant-tables --skip-networking &amp;amp;&amp;gt; mysql  登录并修改密码 12&amp;gt; USE mysql;&amp;gt; update user set authenticatio">
+<meta name="twitter:description" content="mysql 基本操作修改密码在忘记本身密码的情况下">
 <meta name="twitter:image" content="d:%5C%E9%B8%BF%E7%A6%8F%5Clinux%E6%95%99%E6%A1%88%5CMysql%5C%E5%BA%93%E5%B1%9E%E6%80%A7.png">
 
 
@@ -378,7 +378,9 @@
       
 
       
-        <h1 id="mysql-基本操作"><a href="#mysql-基本操作" class="headerlink" title="mysql 基本操作"></a>mysql 基本操作</h1><h2 id="修改密码在忘记本身密码的情况下"><a href="#修改密码在忘记本身密码的情况下" class="headerlink" title="修改密码在忘记本身密码的情况下"></a>修改密码在忘记本身密码的情况下</h2><ol>
+        <h1 id="mysql-基本操作"><a href="#mysql-基本操作" class="headerlink" title="mysql 基本操作"></a>mysql 基本操作</h1><h2 id="修改密码在忘记本身密码的情况下"><a href="#修改密码在忘记本身密码的情况下" class="headerlink" title="修改密码在忘记本身密码的情况下"></a>修改密码在忘记本身密码的情况下</h2><a id="more"></a>
+
+<ol>
 <li><p>关闭数据库</p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">stop</span> mysqld</span><br></pre></td></tr></table></figure>
 </li>

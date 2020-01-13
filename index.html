@@ -546,77 +546,17 @@
 
       
         
-          
-            <h1 id="Mysql-DQL"><a href="#Mysql-DQL" class="headerlink" title="Mysql_DQL"></a>Mysql_DQL</h1><blockquote>
+          <h1 id="Mysql-DQL"><a href="#Mysql-DQL" class="headerlink" title="Mysql_DQL"></a>Mysql_DQL</h1><blockquote>
 <p>DQL（data query language）数据查询语言 select操作</p>
 </blockquote>
-<h2 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h2><ol>
-<li><p>select 单独应⽤</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; select @@port; -- 查看mysql 端口</span><br><span class="line">&gt; select @@version; -- 查看mysql版本</span><br><span class="line">&gt; show variables;  -- 语句查看系统变量及其值。</span><br><span class="line">&gt; show variables like &apos;%innodb%&apos;; -- like 模糊匹配 只要匹配到innodb 这几个字符 就显示</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>select 函数()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; select now(); -- 显示当前时间;</span><br><span class="line">&gt; select database(); -- 查看当前在那个库</span><br><span class="line">&gt; select version(); -- 显示当前版本;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="SQL92标准的使⽤语法"><a href="#SQL92标准的使⽤语法" class="headerlink" title="SQL92标准的使⽤语法"></a>SQL92标准的使⽤语法</h2><h3 id="select-语法执⾏顺序（单表）"><a href="#select-语法执⾏顺序（单表）" class="headerlink" title="select 语法执⾏顺序（单表）"></a>select 语法执⾏顺序（单表）</h3><h3 id="select的时候追加字段"><a href="#select的时候追加字段" class="headerlink" title="select的时候追加字段"></a>select的时候追加字段</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; select *,&apos;值&apos; as 字段别名 from 表名;</span><br></pre></td></tr></table></figure>
-
-<h3 id="from"><a href="#from" class="headerlink" title="from"></a><strong>from</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; select * from 表名; -- 查找整张表的所有字段</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; select 字段1,字段2 from 表名; -- 查找整张表的指定字段</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; select 字段1 as &apos;别名&apos;,字段2 as &apos;别名2&apos; from 表名; -- 查找整张表的指定字段并且显示别名</span><br></pre></td></tr></table></figure>
-
-<h3 id="where"><a href="#where" class="headerlink" title="where"></a><strong>where</strong></h3><ol>
-<li><p>配合 等值查询（=）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; select * from 表名 where ID=1(条件); -- 查找该表 id=1 的数据</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配合 不等值（&lt; &gt; &lt;= &gt;= !=）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; select * from 表名 where age &lt; 16; -- 查找该表 年龄小于16 的数据</span><br><span class="line">&gt; select * from 表名 where age = 16; -- 查找该表 年龄等于16 的数据</span><br><span class="line">&gt; select * from 表名 where age != 16; -- 查找该表 年龄不等于16 的数据</span><br><span class="line">&gt; select * from 表名 where age &gt; 16; -- 查找该表 年龄大于16 的数据</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="配合-模糊（like）"><a href="#配合-模糊（like）" class="headerlink" title="配合 模糊（like）"></a><strong>配合 模糊（like）</strong></h3><blockquote>
-<p>查询姓名以往开头的所有信息</p>
-<p>注意：like 语句在MySQL中，不要出现%在前⾯的情况，因为效率极低，%王%</p>
-<p>！！！！！！！</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; select * from 表名 where name like &apos;王%&apos;; -- 查找该表姓王的同学</span><br></pre></td></tr></table></figure>
-
-<h3 id="配合-逻辑连接符（and-or）"><a href="#配合-逻辑连接符（and-or）" class="headerlink" title="配合 逻辑连接符（and or）"></a><strong>配合 逻辑连接符（and or）</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; select * from 表名 where age &gt; 15 and age &lt; 22; -- 查找该表 年纪大于15 **并且** 小于22的 同学</span><br><span class="line">&gt; select * from 表名 where age &gt; 15 or age &lt; 22; -- 查找该表 年纪大于15 **或者** 小于22的 同学</span><br></pre></td></tr></table></figure>
-
-<h3 id="group-by"><a href="#group-by" class="headerlink" title="group by"></a><strong>group by</strong></h3><blockquote>
-<p>配合聚合函数使⽤（常⽤的聚合函数avg(), sum(),count(),max(),min()）</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; select sex, sum(age) from 表名 group by sex;  -- 统计男人 年纪 和 女人 年纪的总和</span><br><span class="line">&gt; select sex, count(name) from 表名 group by sex; -- 统计男人有多少个 和 女人有多少个</span><br><span class="line">&gt; select sex, avg(age) from 表名 group by name; -- 统计男人平均年龄 和 女人平均年龄</span><br><span class="line">&gt; select sex, max(age) from 表名 group by sex; -- 统计男人最 **大** 年纪是多少 和 女人最 **大** 年纪是多少</span><br><span class="line">&gt; select sex, min(age) from 表名 group by sex; -- 统计男人最 **小** 年纪是多少 和 女人最 **小** 年纪是多少</span><br></pre></td></tr></table></figure>
-
-<h3 id="having"><a href="#having" class="headerlink" title="having"></a>having</h3><blockquote>
-<p>配合group by 使用 在group by 统计过后  在筛选结果</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; select age, count(id) as &apos;num&apos; from 表名 group by age having age &gt; 19; -- 统计该表各个年龄有多少人 并且 显示年纪大于19岁的</span><br></pre></td></tr></table></figure>
-
-<h3 id="order-by"><a href="#order-by" class="headerlink" title="order by"></a>order by</h3><blockquote>
-<p>排序</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; select * from 表名 order by age; -- 查找该表所有数据 并且 按年纪 正序排列   ase</span><br><span class="line">&gt; select * from 表名 order by age desc; -- 查找该表所有数据 并且 按年纪 倒序排列</span><br></pre></td></tr></table></figure>
-
-<h3 id="limit"><a href="#limit" class="headerlink" title="limit"></a><strong>limit</strong></h3><blockquote>
-<p>分页</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; select * from 表名 limit 5; -- 取该表前五条数据  0,5</span><br><span class="line">&gt; select * from 表名 limit 2,2; -- 取该表数据 从第3条开始 往后取2条</span><br><span class="line">&gt; select * from 表名 limit 2 offset 0, -- 取该表的数据 offset 从哪里开始取  limit 取几条</span><br></pre></td></tr></table></figure>
-
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ol>
-<li><p>concat() </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; select *,CONCAT(name,&apos;-&apos;,age,&apos;-&apos;,sex) from 表名; -- 字段拼接</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<h2 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h2><h3 id="join"><a href="#join" class="headerlink" title="join"></a>join</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;  select teacher.tname,course.cname from teacher join course on teacher.tno=course.tno where teacher.tname=&apos;micheal&apos;; -- 查询tearch表 和 course表的内容 条件是 tearch的tno = course.tno 和 teacher.tname = &apos;micheal&apos;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h1>
-          
+<h2 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/12/mysql_DQL/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -755,261 +695,14 @@
 
       
         
-          
-            <h1 id="mysql-基本操作"><a href="#mysql-基本操作" class="headerlink" title="mysql 基本操作"></a>mysql 基本操作</h1><h2 id="修改密码在忘记本身密码的情况下"><a href="#修改密码在忘记本身密码的情况下" class="headerlink" title="修改密码在忘记本身密码的情况下"></a>修改密码在忘记本身密码的情况下</h2><ol>
-<li><p>关闭数据库</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">stop</span> mysqld</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动数据库到维护模式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; mysqld_safe --skip-grant-tables --skip-networking &amp;</span><br><span class="line">&gt; mysql</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>登录并修改密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; USE mysql;</span><br><span class="line">&gt; update user set authentication_string=password(&apos;123456&apos;), password_expired=&apos;N&apos; where user=&apos;root&apos;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>刷新权限并退出 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; flush privileges;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="在不登陆Mysql的情况下在外部修改密码"><a href="#在不登陆Mysql的情况下在外部修改密码" class="headerlink" title="在不登陆Mysql的情况下在外部修改密码"></a>在不登陆Mysql的情况下在外部修改密码</h2><ol>
-<li><p>用mysqladmin</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; mysqladmin -u 用户名 -p 旧密码 password 新密码 </span><br><span class="line"></span><br><span class="line">&gt; mysqladmin -u root -p password 123456 </span><br><span class="line">&gt;  会提示你让你输入新密码;</span><br><span class="line">&gt;  完成后如果提示 waring 就说明成功了;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果提示找不到mysqladmin命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; ln -s /usr/local/mysql/bin/mysql /usr/bin</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<h2 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h2><ol>
-<li><p><strong>数据查询语言DQL</strong></p>
-<blockquote>
-<p>数据查询语言DQL基本结构是由SELECT子句，FROM子句，WHERE<br>子句组成的查询块：</p>
-<p>SELECT &lt;字段名表&gt;<br>FROM &lt;表或视图名&gt;<br>WHERE &lt;查询条件&gt;</p>
-</blockquote>
-</li>
-<li><p><strong>数据操纵语言DML</strong></p>
-<blockquote>
-<p>数据操纵语言DML主要有三种形式：</p>
-<p>插入：INSERT<br>更新：UPDATE<br>删除：DELETE</p>
-</blockquote>
-</li>
-<li><p><strong>数据定义语言DDL</strong></p>
-<blockquote>
-<p>数据定义语言DDL用来创建数据库中的各种对象—–表、视图、<br>索引、同义词、聚簇等如：</p>
-<p>CREATE TABLE/VIEW/INDEX/SYN/CLUSTER<br>表               视图   索引          同义词       簇</p>
-<p>DDL操作是隐性提交的！不能rollback </p>
-</blockquote>
-</li>
-<li><p><strong>数据控制语言DCL</strong></p>
-<blockquote>
-<p>数据控制语言DCL用来授予或回收访问数据库的某种特权，并控制<br>数据库操纵事务发生的时间及效果，对数据库实行监视等。如：</p>
-<p>1) GRANT：授权。</p>
-<p>2) ROLLBACK [WORK] TO [SAVEPOINT]：回退到某一点。<br>回滚—ROLLBACK<br>回滚命令使数据库状态回到上次最后提交的状态。其格式为：<br>SQL&gt;ROLLBACK;</p>
-<p>3) COMIT [WORK]：提交。</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="库与表"><a href="#库与表" class="headerlink" title="库与表"></a>库与表</h2><h3 id="库"><a href="#库" class="headerlink" title="库"></a>库</h3><ol>
-<li><p>查看所有库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; SHOW DATABASE;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看某个库的属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; SHOW CREATE DATABASE 库名</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看某个库下所有的表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; SHOW TABLE STATUS FROM 库名</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入某个库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; USE 库名</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p><img src="D:%5C%E9%B8%BF%E7%A6%8F%5Clinux%E6%95%99%E6%A1%88%5CMysql%5C%E5%BA%93%E5%B1%9E%E6%80%A7.png" alt="库属性"></p>
-<ol start="5">
-<li><p>新建一个数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;  CREATE DATABASE 库名 CHARSET=utf8mb4;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看当前在哪个库里</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; SELECT DATABASE();</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-</li>
-</ol>
-<h3 id="表"><a href="#表" class="headerlink" title="表"></a>表</h3><ol>
-<li><p>查看当前库里所有的表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; SHOW TABLES;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看表的属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; SHOW CREATE TABLE 表名</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p><img src="D:%5C%E9%B8%BF%E7%A6%8F%5Clinux%E6%95%99%E6%A1%88%5CMysql%5C%E8%A1%A8%E5%B1%9E%E6%80%A7.png" alt="表属性"></p>
-<h3 id="表属性"><a href="#表属性" class="headerlink" title="表属性"></a>表属性</h3><ol>
-<li><p>存储引擎 </p>
-<ul>
-<li>InnoDB (Mysql5.5以后默认)</li>
-<li>Mysam (Mysql5.5以前默认)</li>
-</ul>
-</li>
-<li><p>字符集</p>
-</li>
-</ol>
-<ul>
-<li>charset = utf8mb4 (一般网站都是这个字符集)</li>
-</ul>
-<ol start="3">
-<li><p>查看数据表所有列的属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; DESC 表名</span><br><span class="line">&gt; SHOW FULL COLUMNS FROM 表名;</span><br></pre></td></tr></table></figure>
-
-<p><img src="D:%5C%E9%B8%BF%E7%A6%8F%5Clinux%E6%95%99%E6%A1%88%5CMysql%5C%E8%A1%A8%E7%9A%84%E5%AD%97%E6%AE%B5%E5%B1%9E%E6%80%A7.png" alt="表的字段属性"></p>
-</li>
-</ol>
-<h3 id="列的属性和约束"><a href="#列的属性和约束" class="headerlink" title="列的属性和约束"></a>列的属性和约束</h3><ol>
-<li><p>主键： primary key (PK)  </p>
-<blockquote>
-<p>说明:唯⼀⾮空,数字列,整数列,⽆关列,⾃增的 ,是⼀种约束，也是⼀种索引类型，在⼀张表中只能有⼀个主键。一般用于id</p>
-</blockquote>
-</li>
-<li><p>⾮空： not null  </p>
-<blockquote>
-<p>说明: 我们建议，对于普通列来讲，尽量设置not null </p>
-</blockquote>
-</li>
-<li><p>默认值 default ：</p>
-<blockquote>
-<p>数字列的默认值使⽤0 ,字符串类型，设置为⼀个nil null</p>
-</blockquote>
-</li>
-<li><p>唯⼀：unique</p>
-<blockquote>
-<p>不能重复</p>
-</blockquote>
-</li>
-<li><p>⾃增 auto_increment</p>
-<blockquote>
-<p>针对数字列，⾃动⽣成顺序值,一般跟主键同时使用</p>
-</blockquote>
-</li>
-<li><p>⽆符号 unsigned</p>
-<blockquote>
-<p>针对数字列</p>
-</blockquote>
-</li>
-<li><p>注释 comment</p>
-</li>
-</ol>
-<h2 id="库的操作"><a href="#库的操作" class="headerlink" title="库的操作"></a>库的操作</h2><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><ol>
-<li><p>创建数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; CREATE DATABASE 库名 CHARSET utf8mb4;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="查看库"><a href="#查看库" class="headerlink" title="查看库"></a>查看库</h3><ol>
-<li><p>查看当前所有库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; SHOW DATABASES;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看库的属性 </p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; SHOW CREATE DATABASE 库名 --DQL</span><br></pre></td></tr></table></figure>
-
-<p>​    3.查看某个库下所有的表的属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; SHOW FULL COLUMNS FROM 表名;</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改库"><a href="#修改库" class="headerlink" title="修改库"></a>修改库</h3><ol>
-<li><p>改库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; ALTER DATABASE 库名 CHARSET 修改的字符集</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="删除库"><a href="#删除库" class="headerlink" title="删除库"></a>删除库</h3><ol>
-<li><p>删库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">忘掉</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="表的操作"><a href="#表的操作" class="headerlink" title="表的操作"></a>表的操作</h2><h3 id="增加表"><a href="#增加表" class="headerlink" title="增加表"></a>增加表</h3><ol>
-<li><p>创建表 (要求创建⼀个学⽣表，包含学号，姓名，年龄，性别)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; create table student(</span><br><span class="line">    ID int not null primary key auto_increment comment &apos;学号&apos;,</span><br><span class="line">    name varchar(255) not null comment &apos;姓名&apos;,</span><br><span class="line">    age int unsigned not null default 0 comment &apos;年龄&apos;,</span><br><span class="line">    sex enum(&apos;m&apos;,&apos;f&apos;) not null default &apos;m&apos; comment &apos;性别&apos;</span><br><span class="line">	)charset=utf8mb4;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><ol>
-<li><p>查看表里的字段</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; DESC 表名 -- 不带备注</span><br><span class="line">&gt; SHOW FULL COLUMNS FROM 表名 -- 带备注</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h3><ol>
-<li><p>添加字段</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; ALTER TABLE 表名 ADD 字段 CHAR(11) NOT NULL UNIQUE COMMENT &apos;备注&apos;;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<ol start="2">
-<li><p>修改字段</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; ALTER TABLE 表名 CHANGE 字段名 新字段名 CHAR(11) NOT NULL;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>只修改字段属性 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; ALTER TABLE 表名 MODIFY 字段 新属性 NOT NULL;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改字段的位置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; ALTER TABLE 表名 MODIFY 字段 属性 AFTER 字段 -- 在哪个字段后面添加</span><br><span class="line">&gt; ALTER TABLE 表名 MODIFY 字段 属性 FIRST -- 把字段放在第一位</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<h3 id="删除字段"><a href="#删除字段" class="headerlink" title="删除字段"></a>删除字段</h3><ol>
-<li><p>删除字段</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; ALTER TABLE 表名 DROP COLUMN 字段, .... ; -- 删除多个字段用,隔开</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="重命名表"><a href="#重命名表" class="headerlink" title="重命名表"></a>重命名表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; ALTER TABLE 表名 RENAME 新表名</span><br></pre></td></tr></table></figure>
-
-<h2 id="DML-数据操作语⾔"><a href="#DML-数据操作语⾔" class="headerlink" title="DML 数据操作语⾔"></a>DML 数据操作语⾔</h2><h3 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h3><ul>
-<li>insert (添加数据)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; INSERT INTO 表名(字段1,字段2,...) VALUES(&apos;字段1&apos;,&apos;字段2&apos;,....) -- 字段你要跟表的字段顺序一一对应 如果多条就(),();</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看数据"><a href="#查看数据" class="headerlink" title="查看数据"></a>查看数据</h3><ul>
-<li>select </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; SELECT * FROM 表名</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h3><ul>
-<li>update</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; UPDATE 表名 SET 字段=新值 WHERE 条件 -- 修改时一定要加 where 条件否则修改整张表</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><ul>
-<li>delete</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; DELETE FROM 表名 WHERE 条件 -- 删除时一定要加 where 条件 否则删除整张表后果自负</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>truncate</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; TRUNCATE TABLE 表名 -- 这个不用加where条件 因为默认就是删除整张表</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>区别：</p>
-<p><strong>delete</strong> 逻辑删除慢，逐⾏的删除，不会降低⾃增⻓的起始值，效率低，碎⽚较多，会</p>
-<p>影响到性能</p>
-<p><strong>truncate</strong> 物理删除，将标段中的区进⾏清空，不会产⽣碎⽚，性能较⾼，但只能全部清</p>
-<p>空</p>
-</blockquote>
-
-          
+          <h1 id="mysql-基本操作"><a href="#mysql-基本操作" class="headerlink" title="mysql 基本操作"></a>mysql 基本操作</h1><h2 id="修改密码在忘记本身密码的情况下"><a href="#修改密码在忘记本身密码的情况下" class="headerlink" title="修改密码在忘记本身密码的情况下"></a>修改密码在忘记本身密码的情况下</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/10/Mysql基础语句/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1148,57 +841,18 @@
 
       
         
-          
-            <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ol>
+          <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ol>
 <li>安装依赖</li>
 </ol>
 <p>​     docker依赖于系统的一些必要的工具，可以提前安装。</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">yum</span> install -y yum-utils device-mapper-persistent-<span class="class"><span class="keyword">data</span> lvm2</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><p>添加软件源</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager --<span class="built_in">add</span>-repo http://mirrors.aliyun.<span class="keyword">com</span>/docker-<span class="keyword">ce</span>/linux/centos/docker-<span class="keyword">ce</span>.repo</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装docker-ce</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum clean <span class="keyword">all</span> yum makecache fastyum -<span class="keyword">y</span> install docker-<span class="keyword">ce</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动服务</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过systemctl启动服务</span><br><span class="line"></span><br><span class="line">systemctl <span class="literal">start</span> docker</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看安装版本</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这样子就安装成功了，启动服务以后可以使用docker version查看一下当前的版本。</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> docker version</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> docker info</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h1 id="docker命令"><a href="#docker命令" class="headerlink" title="docker命令"></a>docker命令</h1><h2 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h2><h3 id="docker-images-–-查看容器"><a href="#docker-images-–-查看容器" class="headerlink" title="docker images  – 查看容器"></a>docker images  – 查看容器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> docker images; <span class="comment">## 查看所有镜像</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-ps-–-查看运行中的容器"><a href="#docker-ps-–-查看运行中的容器" class="headerlink" title="docker ps  – 查看运行中的容器"></a>docker ps  – 查看运行中的容器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> docker ps [OPTIONS]; <span class="comment">## 查看所有运行的容器;</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">           -a; <span class="comment">## 显示所有的容器，包括未运行的 -a all的意思 </span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">           -f; <span class="comment">## 根据条件过滤显示的内容。</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">           -q; <span class="comment">## 静默模式，只显示容器编号。</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-search-–-搜索容器"><a href="#docker-search-–-搜索容器" class="headerlink" title="docker search   – 搜索容器"></a>docker search   – 搜索容器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> docker search [OPTIONS] 容器名; <span class="comment">## 搜索容器</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">               --no-trunc 		 <span class="comment">## 显示完整的镜像描述；   </span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> 			   -s num               <span class="comment">##列出收藏数不小于指定值的镜像。</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-pull-–-拉取容器"><a href="#docker-pull-–-拉取容器" class="headerlink" title="docker pull – 拉取容器"></a>docker pull – 拉取容器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> docker pull [OPTIONS] NAME; <span class="comment">## 从镜像仓库中拉取或者更新指定镜像 </span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">             -a              <span class="comment">## 拉取所有 tagged 镜像</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-push"><a href="#docker-push" class="headerlink" title="docker  push"></a>docker  push</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> docker push [OPTIONS] NAME; <span class="comment">## 将本地的镜像上传到镜像仓库,要先登陆到镜像仓库</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-load"><a href="#docker-load" class="headerlink" title="docker  load"></a>docker  load</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> docker load --input fedora.tar <span class="comment">## 导入指定文件到docker里</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-save"><a href="#docker-save" class="headerlink" title="docker  save"></a>docker  save</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> docker save -o nginx.tar nginx:latest <span class="comment"># 其中-o和&gt;表示输出到文件，nginx.tar为目标文件，nginx:latest是源镜像名（name:tag）</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> docker save &gt; nginx.tar nginx:latest</span></span><br></pre></td></tr></table></figure>
-
-<p>docker rm | rmi</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> docker rmi images_id <span class="comment"># 删除一个images的镜像</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> docker rm $(docker ps -qa) <span class="comment"># 删除启动的所有镜像</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> docker run -d -p 端口号(宿主机):端口号(容器) 容器id; <span class="comment"># 启动一个容器 如果没有就自动pull一个</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> --name 别名 <span class="comment"># 给容器设置一个别名</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> --net=host <span class="comment"># 网络模式</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> -v 本地路径:容器路径 <span class="comment"># 将本地的文件映射到容器里;</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> --link 容器:别名; <span class="comment"># 将容器关联起来</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-inspect"><a href="#docker-inspect" class="headerlink" title="docker inspect"></a>docker inspect</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> docker inspect 容器ID或容器名 | grep <span class="string">'"IPAddress"'</span> <span class="comment"># 查看容器内网ip</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-exec"><a href="#docker-exec" class="headerlink" title="docker exec"></a>docker exec</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> docker <span class="built_in">exec</span> -it 容器id /bin/bash <span class="comment"># 进入到容器内部</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-cp"><a href="#docker-cp" class="headerlink" title="docker cp"></a>docker cp</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> docker cp 96f7f14e99ab:/www /tmp/ <span class="comment"># 将容器96f7f14e99ab的/www目录拷贝到主机的/tmp目录中。</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> docker cp /www/runoob 96f7f14e99ab:/www/ <span class="comment">#将主机/www/runoob目录拷贝到容器96f7f14e99ab的/www目录下。</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-start-restart-stop"><a href="#docker-start-restart-stop" class="headerlink" title="docker start | restart | stop"></a>docker start | restart | stop</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> docker start 容器id <span class="comment"># 启动一个容器</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> docker stop 容器id <span class="comment"># 关闭一个容器</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> docker restart 容器id <span class="comment"># 容器一个容器</span></span></span><br></pre></td></tr></table></figure>
-
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/12/10/Docker/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
